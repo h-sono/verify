@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TodoInput from './TodoInput';
+import TodoList from './TodoList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends React.Component {
+  render() {
+    // TODO: 後程state管理
+    const tasks = [
+      { id: 1, title: 'ToDo1つ目' },
+      { id: 2, title: 'ToDo2つ目' },
+    ];
+    return (
+      <div>
+        <h1>TODO APP</h1>
+        <TodoInput />
+        <TodoList tasks={tasks} />
+      </div>
+    );
+  }
+};
 
 export default App;
