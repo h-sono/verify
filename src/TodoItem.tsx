@@ -5,7 +5,7 @@ export interface itemProps {
     title: string;
 };
 
-const TodoItem: React.FC<itemProps> = (itemProps) => {
+export const TodoItem: React.FC<itemProps> = (itemProps) => {
   const { title } = itemProps;
   return (
     <li>
@@ -13,5 +13,3 @@ const TodoItem: React.FC<itemProps> = (itemProps) => {
     </li>
   )
 };
-
-export default TodoItem;

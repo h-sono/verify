@@ -1,11 +1,11 @@
 import React from 'react';
-import TodoItem, { itemProps } from './TodoItem';
+import { TodoItem, itemProps } from './TodoItem';
 
 export interface tasks {
   tasks: Array<itemProps>
 }
 
-class TodoList extends React.Component<tasks> {
+export class TodoList extends React.Component<tasks> {
   render() {
     const { tasks } = this.props;
     const list = tasks.map(todo => {
@@ -21,5 +21,3 @@ class TodoList extends React.Component<tasks> {
     );
   }
 };
-
-export default TodoList;

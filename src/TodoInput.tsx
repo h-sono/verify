@@ -1,9 +1,6 @@
 import React from 'react';
 
-export interface Props {}
-export interface State {}
-
-class TodoInput extends React.Component {
+export class TodoInput extends React.Component {
   render() {
     return (
       <div>
@@ -13,5 +10,3 @@ class TodoInput extends React.Component {
     );
   }
 };
-
-export default TodoInput;

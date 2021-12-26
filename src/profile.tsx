@@ -5,7 +5,7 @@ export interface profileProps {
     birthday: string;
 };
 
-const Profile = (props: profileProps) => {
+export const Profile = (props: profileProps) => {
     return (
         <ul>
             <li>名前：{props.name}</li>
@@ -13,5 +13,3 @@ const Profile = (props: profileProps) => {
         </ul>
     )
 };
-
-export default Profile;

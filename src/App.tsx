@@ -1,6 +1,6 @@
 import React from 'react';
-import TodoInput from './TodoInput';
-import TodoList from './TodoList';
+import { TodoInput } from './TodoInput';
+import { TodoList } from './TodoList';
 
 class App extends React.Component {
   render() {
