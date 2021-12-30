@@ -1,22 +1,54 @@
 import React from 'react';
 import { TodoInput } from './TodoInput';
 import { TodoList } from './TodoList';
+import { itemProps } from './TodoItem';
 
-class App extends React.Component {
+export interface state {
+  tasks: Array<itemProps>;
+  uniqueId: number;
+}
+
+export class App extends React.Component<{},state> {
+  // 試験的にstateを変更
+  constructor (props: any) {
+    super (props);
+    this.state = {
+      tasks: [
+        {
+          title: 'デフォルトTODO',
+          id: 0
+        }
+      ],
+      uniqueId: 1
+    };
+    // addTodoメソッドが常にAppコンポーネントのstateを参照できるようthisをbindする。
+    this.addTodo = this.addTodo.bind(this);
+  }
+
+  addTodo(title: string) {
+    const {
+      tasks,
+      uniqueId,
+    } = this.state
+
+    tasks.push({
+      title,
+      id: uniqueId,
+    });
+
+    this.setState({
+      tasks,
+      uniqueId: uniqueId + 1,
+    });
+  }
+
   render() {
-    // TODO: 後程state管理
-    const tasks = [
-      { id: 1, title: 'ToDo1つ目' },
-      { id: 2, title: 'ToDo2つ目' },
-    ];
     return (
       <div>
         <h1>TODO APP</h1>
-        <TodoInput />
-        <TodoList tasks={tasks} />
+        <TodoInput addTodo={this.addTodo} />
+        <TodoList tasks={this.state.tasks} />
       </div>
     );
   }
 };
-
-export default App;

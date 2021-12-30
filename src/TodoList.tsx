@@ -2,7 +2,7 @@ import React from 'react';
 import { TodoItem, itemProps } from './TodoItem';
 
 export interface tasks {
-  tasks: Array<itemProps>
+  tasks: Array<itemProps>;
 }
 
 export class TodoList extends React.Component<tasks> {

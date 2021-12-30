@@ -1,8 +1,8 @@
 import React from 'react';
 
 export interface itemProps {
-    id: number;
     title: string;
+    id: number;
 };
 
 export const TodoItem: React.FC<itemProps> = (itemProps) => {
