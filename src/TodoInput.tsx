@@ -1,21 +1,35 @@
 import React from 'react';
 
 export interface funcProps {
-  addTodo(title: string): void
+  addTodo(title: string): void;
 }
 
-export class TodoInput extends React.Component<funcProps> {
+export interface inputValueState {
+  inputValue: string;
+}
+
+export class TodoInput extends React.Component<funcProps, inputValueState> {
   constructor(props: funcProps) {
     super(props);
+    this.state = {
+      inputValue: '',
+    }
     this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
   handleClick(){
-    this.props.addTodo('新規Todo');
+    const inputValue = this.state.inputValue;
+    this.props.addTodo(inputValue);
+  }
+  handleChange(e: any){
+    this.setState({
+      inputValue: e.target.value,
+    })
   }
   render() {
     return (
-      <div>
-        <input placeholder='新規TODOを入力してください'></input>
+      <div className='TodoInput'>
+        <input placeholder='新規TODO' value={this.state.inputValue} onChange={this.handleChange} />
         <button onClick={this.handleClick}>登録</button>
       </div>
     );

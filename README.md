@@ -44,3 +44,63 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## npm init
+package.json初回作成時。フォルダ名がnameとなる。
+
+## webpack
+$ `npm install --save-dev webpack`
+$ `npm install --save-dev webpack-cli`
+※`npm install --save-dev` = `npm i -D`
+
+webpack実行
+$ `npx webpack`
+developmentモード（モジュールを圧縮しない）、productionモード（モジュールを圧縮＝改行なしで出力）
+を指定する場合↓
+$ `npx webpack --mode development`
+↓
+毎回指定するのは面倒なのでpackage.jsonのscriptsに指定する。
+```
+"scripts": {
+    // 開発用
+    "dev": "webpack --mode development",
+    
+    // 本番用
+    "prd": "webpack --mode production",
+    省略
+  },
+```
+devやprdがコマンドとして使えるようになる。
+例）npm run dev や npm run prd⇒webpackが成功したかの確認のみ
+
+## webpack設定関連
+https://dev-yakuza.posstree.com/react/start/
+https://qiita.com/takano-h/items/1a6a5a0b9d25a677f7d2
+https://zenn.dev/ichigo_dev/articles/d061205249e6db364c2a
+https://qiita.com/ftyabu/items/240280617a69777a2fd4
+https://www.webdesignleaves.com/pr/jquery/webpack_basic_01.html
+
+## webpack-dev-server関連
+webpack-dev-server：webpackを開発サーバーで起動。
+https://webpack.js.org/configuration/dev-server/
+
+## nodeバージョン切り替え(volta使用)
+https://symfoware.blog.fc2.com/blog-entry-2535.html
+voltaインストール
+$ `sudo curl https://get.volta.sh | bash`
+node.jsの安定版インストール
+$ `volta install node`
+node.jsの最新版インストール
+$ `volta install node@latest`
+※バージョンを戻す
+$ `apt install nodejs`
+
+## webpackでビルド
+$ `npm run start`
+↓
+package.jsonの設定
+```
+"scripts": {
+    "start": "webpack-dev-server",
+    省略
+```
