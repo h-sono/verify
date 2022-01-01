@@ -2,7 +2,7 @@
 name: Bug report
 about: バグ発生時に使用。
 title: ''
-labels: ''
+labels: バグ修正
 assignees: ''
 
 ---
