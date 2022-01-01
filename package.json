@@ -18,10 +18,10 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "NODE_ENV=dev webpack-dev-server",
     "build": "react-scripts build",
-    "dev": "webpack --mode development",
-    "prd": "webpack --mode production",
+    "stg": "NODE_ENV=stg webpack",
+    "prd": "NODE_ENV=prd webpack",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
