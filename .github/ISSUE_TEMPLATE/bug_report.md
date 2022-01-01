@@ -1,6 +1,6 @@
 ---
-name: 機能追加
-about: 機能追加時に使用。
+name: Bug report
+about: バグ発生時に使用。
 title: ''
 labels: ''
 assignees: ''
