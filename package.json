@@ -18,7 +18,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "NODE_ENV=dev webpack-dev-server",
+    "start": "react-scripts start",
+    "dev": "NODE_ENV=dev webpack-dev-server",
     "build": "react-scripts build",
     "stg": "NODE_ENV=stg webpack",
     "prd": "NODE_ENV=prd webpack",
