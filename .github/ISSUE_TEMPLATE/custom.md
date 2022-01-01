@@ -1,12 +1,14 @@
 ---
 name: Custom issue template
-about: 機能追加用。
-title: ''
-labels: 機能追加
+about: Describe this issue template's purpose here.
+title: "【】（タイトル）"
+labels: ''
 assignees: ''
 
 ---
 
-- 概要
+## 概要
 
-- 詳細
+## 詳細
+
+## 参考
