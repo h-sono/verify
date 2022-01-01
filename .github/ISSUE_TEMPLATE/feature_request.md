@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: バグ以外の修正時に使用。
+about: 機能追加、バグ以外の修正時に使用。
 title: ''
 labels: ''
 assignees: ''
