@@ -26,10 +26,10 @@ module.exports = {
   },
   module:{
     rules:[
-      {
-        test:/\.css$/,
-        use:['style-loader','css-loader'],
-      },
+      // {
+      //   test:/\.css$/,
+      //   use:['style-loader','css-loader'],
+      // },
       {
         test:/\.(tsx|ts)$/,
         use:[
@@ -46,7 +46,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname,'webpack_relation/index.html'),
+      template: path.join(__dirname,'./src/index.html'),
+      filename: 'index.html',
     }),
   ],
 

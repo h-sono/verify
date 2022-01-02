@@ -42,7 +42,7 @@ module.exports = {
       {
         // testプロパティ⇒rulesに指定するファイルを正規表現で指定
         test:/\.css$/,
-        // 指定されたファイルに対して使うLoaderを指定
+        // 指定されたファイルに対して使うLoaderを指定(スタイルシートのローダー)
         use:['style-loader','css-loader'],
       },
       {
@@ -63,7 +63,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname,'webpack_relation/index.html'),
+      // index.htmlはsrc配下(index.tsxのあるディレクトリ)に配置する。
+      template: path.join(__dirname,'./src/index.html'),
+      filename: 'index.html',
     }),
   ],
 
