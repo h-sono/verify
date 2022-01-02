@@ -95,12 +95,12 @@ $ `volta install node@latest`
 ※バージョンを戻す
 $ `apt install nodejs`
 
-## webpackでビルド
-$ `npm run start`
+## webpackでビルド(開発用ビルド)
+$ `npm run dev`
 ↓
 package.jsonの設定
 ```
 "scripts": {
-    "start": "webpack-dev-server",
+    "dev": "NODE_ENV=dev webpack-dev-server",
     省略
 ```

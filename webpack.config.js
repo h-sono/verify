@@ -10,7 +10,7 @@ const mode = {
 
 module.exports = {
   mode: mode,
-  entry: path.join(__dirname,'src', 'index.tsx'),
+  entry: path.join(__dirname,'src', 'tsx', 'index.tsx'),
   devServer: {
     static: {
       directory: path.join(__dirname, 'src'),
