@@ -102,5 +102,5 @@ package.jsonの設定
 ```
 "scripts": {
     "dev": "NODE_ENV=dev webpack-dev-server",
-    省略
+    省略...
 ```
