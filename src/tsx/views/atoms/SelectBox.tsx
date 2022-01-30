@@ -4,47 +4,53 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 
-export interface ComboBoxItem {
+export interface SelectBoxItem {
   id: string;
   value: string;
-  selectedFlg? :boolean;
 }
 
 type Props = {
   inputLabel: string;
-  items: ComboBoxItem[];
+  items: SelectBoxItem[];
   defaultValue?: string;
-  value?: string;
-  onChange: (selected: string) => void;
+  selectedFlg: boolean;
 };
 
-export const ComboBox: React.FC<Props> = (props) => {
+export const SelectBox: React.FC<Props> = (props) => {
   const { 
     inputLabel, 
     items, 
-    value = '', 
     defaultValue = '', 
-    onChange 
+    selectedFlg = false,
   } = props;
 
+  // 1つの項目をselected　かつ　readOnlyにしたいとき用
+  let selectedVal = '';
+  if (selectedFlg) {
+    items.map((item) =>{
+      selectedVal = item.value;
+    });
+  };
+
+  const [value, setValue] = React.useState(selectedFlg? selectedVal : defaultValue);
+
   return (
-    <FormControl style={{margin: '30px'}}>
+    <FormControl style={{margin: '50px'}}>
       <InputLabel>{inputLabel}</InputLabel>
       <Select
         defaultValue={defaultValue}
+        // disabled={selectedFlg}
+        readOnly={selectedFlg}
         value={value}
         onChange={(e) => {
-          if (e.target.value !== undefined) {
-            onChange(e.target.value as string);
-          }
+          setValue(e.target.value as string);
         }}
       >
         {
           items.map((item) => (
-            <MenuItem 
-              value={item.id} 
+            <MenuItem
+              value={item.value}
               key={item.id}
-              selected={item.selectedFlg}
             >
               {item.value}
             </MenuItem>

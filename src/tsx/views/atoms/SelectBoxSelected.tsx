@@ -4,47 +4,46 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 
-export interface ComboBoxItem {
+export interface SelectBoxSelectedItem {
   id: string;
   value: string;
-  selectedFlg? :boolean;
+  selectedFlg?: boolean;
 }
 
 type Props = {
   inputLabel: string;
-  items: ComboBoxItem[];
-  defaultValue?: string;
-  value?: string;
-  onChange: (selected: string) => void;
+  items: SelectBoxSelectedItem[];
 };
 
-export const ComboBox: React.FC<Props> = (props) => {
+export const SelectBoxSelected: React.FC<Props> = (props) => {
   const { 
     inputLabel, 
     items, 
-    value = '', 
-    defaultValue = '', 
-    onChange 
   } = props;
 
+  let selectedVal = '';
+  items.map((item) =>{
+    if (item.selectedFlg) {
+      selectedVal = item.value;
+    };
+  });
+
+  const [value, setValue] = React.useState(selectedVal);
+
   return (
-    <FormControl style={{margin: '30px'}}>
+    <FormControl style={{margin: '50px'}}>
       <InputLabel>{inputLabel}</InputLabel>
       <Select
-        defaultValue={defaultValue}
         value={value}
         onChange={(e) => {
-          if (e.target.value !== undefined) {
-            onChange(e.target.value as string);
-          }
+          setValue(e.target.value as string);
         }}
       >
         {
           items.map((item) => (
-            <MenuItem 
-              value={item.id} 
+            <MenuItem
+              value={item.value}
               key={item.id}
-              selected={item.selectedFlg}
             >
               {item.value}
             </MenuItem>
